@@ -1,0 +1,20 @@
+On the other PC:
+1. Copy the zip over (USB, Google Drive, etc.) and unzip it (right-click → Extract All). Don't run it from inside the zip.
+2. Open the payment-verifier folder and double-click Payment Verifier.exe.
+3. The first time, it needs internet and takes a few minutes. It installs Python and Tesseract if the PC doesn't have them, then sets up the app.
+4. The app opens in the browser by itself. After the first time, it starts in a few seconds.
+
+Things to know:
+- If Windows shows "Windows protected your PC", click More info → Run anyway. Windows shows this for any exe that isn't digitally signed.
+- If Windows asks for permission while installing Python or Tesseract, click Yes.
+- A black window stays open while the app runs. Close it to stop the app.
+- If port 8000 is busy, it picks the next free port by itself.
+- The zip doesn't include your database or slip images, so the other PC starts empty. To copy your data too, run installer\make_package.ps1 -IncludeData.
+
+What I tested: on this PC, the exe started the app and it answered in the browser. I then closed that test copy, and your own copy on port 8080 is still running. I couldn't test the automatic Python and Tesseract install, because this PC already has them. The first run on a fresh PC is where problems would show up. If it fails there, send me a photo of the black window.
+
+New files, in an installer folder:
+- start.ps1: does the setup and starts the app
+- Launcher.cs: the source code of the exe
+- build_exe.ps1: rebuilds the exe
+- make_package.ps1: remakes the zip. Run it again after you change the app.
